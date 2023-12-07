@@ -1,34 +1,4 @@
 import "./App.css";
-
-/* const user1 = {
-  avatar:
-    "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcR2dgLtDgjkCaYbQ4dM1_ChDGn099lViVzaT5ieUhkow-XQLoi8uxGY-WpmY8TiWXDFpWq84hi0k2PIAgQ",
-  name: "samantha Gamage",
-  designation: "Java Developer",
-  salary: 15000,
-};
-const user2 = {
-  avatar:
-    "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRb3j_Y7ZdB_0cQdKuSiY-XgrncZk0z6i6cak4iCVGUk5V_0Qwc",
-  name: "Nihal Jayashantha",
-  designation: "Php Developer",
-  salary: 30000,
-};
-const user3 = {
-  avatar:
-    "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRoPQCPChHOPU7VGkkTPnu9nGqmnrr12_4J50QLLHZYQ37x0J50",
-  name: "Wasantha nanayakkara",
-  designation: "Angular Developer",
-  salary: 60000,
-};
-const user4 = {
-  avatar:
-    "https://img.ilcdn.fi/__CO_Ff9mb-vFR1DpP54PiyEKVw=/full-fit-in/920x0/img-s3.ilcdn.fi/abf2dbe6365bece34369b0e63dbf8ed21436002f85ebc4b12605871ea58a8034.jpg",
-  name: "Shehan Sandeepa",
-  designation: "React Developer",
-  salary: 50000,
-}; */
-
 const users = [
   {
     avatar:
@@ -63,25 +33,40 @@ const users = [
     code: 4,
   },
 ];
-
 function UserManager() {
   return (
     <div className="wrapper">
-      {users.map((selectedUser, index) => {
-        const { avatar, name, designation, salary, code } = selectedUser;
-        return (
-          <User
-            avatar={avatar}
-            name={name}
-            designation={designation}
-            salary={salary}
-            key={index}
-          />
-        );
+      <SearchForm />
+
+      {users.map((user) => {
+        return <User {...user} key={user.code} />;
       })}
     </div>
   );
 }
+
+const SearchForm = () => {
+  const manageChangeEvent = (e) => {
+    console.log(e.target.value);
+  };
+  const manageClickEvent = (e) => {
+    console.log("manageClickEvent");
+  };
+  const manageSubmitEvent = (e) => {
+    e.preventDefault();
+    console.log("manageSubmitEvent");
+  };
+  return (
+    <div className="search-outer">
+      <form onSubmit={manageSubmitEvent}>
+        <input type="search" name="searchText" onChange={manageChangeEvent} /> |{" "}
+        <button type="submit" onClick={manageClickEvent}>
+          Search Now
+        </button>
+      </form>
+    </div>
+  );
+};
 
 const User = (props) => {
   const { avatar, name, designation, salary } = props;
