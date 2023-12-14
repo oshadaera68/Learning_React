@@ -1,3 +1,10 @@
+interface DefaultCardData{
+    thumbnail:string,
+    title:string,
+    description:string
+    value:number
+}
+
 function DefaultCard(props:DefaultCardData){
     const maxWidthStyle:React.CSSProperties={
         maxWidth:'540px'
