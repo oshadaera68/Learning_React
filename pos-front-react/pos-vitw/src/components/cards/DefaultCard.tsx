@@ -1,8 +1,10 @@
+import React from "react";
+
 interface DefaultCardData{
     thumbnail:string,
     title:string,
     description:string
-    value:number
+    value:number | undefined
 }
 
 function DefaultCard(props:DefaultCardData){
@@ -26,5 +28,4 @@ function DefaultCard(props:DefaultCardData){
         </div>
     )
 }
-
-export default DefaultCard
+export default DefaultCard;

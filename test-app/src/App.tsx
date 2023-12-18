@@ -1,38 +1,7 @@
-import React from "react";
 import "./App.css";
+import Customer from "./Customer.tsx";
 
-class Counter extends React.Component<{}, { count: number }> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      count: 0,
-    };
-  }
-
-  increment = () => {
-    this.setState((lastState) => ({
-      count: lastState.count + 1
-    }));
-  };
-
-  decrement = () => {
-    this.setState((lastState) => ({
-      count: lastState.count - 1
-    }));
-  };
-
-  render(): React.ReactNode {
-    return (
-      <>
-        <p>Count: {this.state.count}</p>
-        <button onClick={this.increment}>Increment</button>
-        <button onClick={this.decrement}>Decrement</button>
-      </>
-    );
-  }
-}
-
-/* const customers = [
+const customers = [
   {
     id: "1",
     avatar:
@@ -83,16 +52,25 @@ class Counter extends React.Component<{}, { count: number }> {
     userProfile:
       "https://www.google.com/search?sca_esv=590159290&cs=1&sxsrf=AM9HkKmtn66ZWnJuj_jqFM105ppBpR--lA:1702395336946&q=Katniss+Everdeen&stick=H4sIAAAAAAAAAEVSvW_TQByNIzVK3CISV0IiC1EEUpUl9vmbpZXasECFRLMwWfadHTv-jH262B0rMVMx8AcgBoT4CxgY2IgQAxLdYEAsLGVFTCTNXerF797v87275lafH8ZDEYoS8SC46QVR3IO-ndsQu3mx4JqrqIxxRCE6NWYLrrWCUqlOAKUzjcAFd9UKFU6cmyxHA8inWPUza8nfGE6GkuTrvqWHZkJjspHFCsWgRIZM-06IJ1IamjNcUVpC6oRlWNih0E_mBU02NQ8x2gOVyOA0MdgUrBQxxZqCiELXV4FhhBk9KCGRTUIPhji1JoQJgJkaGwlgZgCkmcyBtZmsnzmP4WYQqeYMG6QsHCYfatOKFoAsFAvEApqil2yEHM8tJkRymAFARdlGteYwB6QCrFxcdzkVZ3N2l7OV1HWTMNaZUL0SdXZRsqI6FtuGhEaIaQHM8Zwtk0lTxN4EEnNKK5mCyutSf6qz1WSdEOaCFeYRm2VCT_vJXXLb7d9_f-x2f3Ev3n264L5zfPtRmhZuVD1xIxu7aJwKt_jGKMEBroSdLs-vxZMyEcb89omLx-lxigKvEkbCId86dmNn-YAfewLg-cM0ilyIgzQR7nb7fG8IN8TQC67-dmRdP_v79b16_yl48P7ryy-Ng05t-X1-dnLQ3Rt0-MZRGttB0uneubiNvp3tD3b55tgu0ySNq07_7fN77uXr_X6rtSo6-vdnf1A7r3NnH958bDSbXLsG6s3aaW3n1Vb7oY2ToCh6I-LmyHWT8wb3H5iHtTeOAwAA&sa=X&ved=2ahUKEwjBuczqnIqDAxWPbGwGHZ-6CKwQ7fAIegUIABCPAg",
   },
-]; */
+];
 
-/* function App() {
+
+function App() {
   return (
     <>
-      <p>Count: 0</p>
-      <button>Increment</button>
-      <button>Decrement</button>
+      <h1>Customer Data</h1>
+      <hr />
+      {customers.map((data) => {
+        <Customer
+          id={data.id}
+          avatar={data.avatar}
+          customerName={data.customerName}
+          description={data.description}
+          userProfile={data.userProfile}
+        />;
+      })}
     </>
   );
-} */
+}
 
-export default Counter;
+export default App;
